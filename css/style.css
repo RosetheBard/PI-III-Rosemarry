@@ -1,0 +1,32 @@
+/*  =========================== gerais =================================  */
+header {
+    padding: 10px;
+    background-color: lightblue;
+}
+
+.corpo {
+    padding: 100px 15px;
+    background-color: lightcyan;
+    height: 100vh !important;
+}
+
+footer {
+    padding: 10px;
+    background-color: lightblue;
+}
+
+
+
+/*  ==========================imgs e icones===============================  */
+
+.img-mid {
+    width: 15%;
+
+}
+
+
+/* ==========================  positions =============================== */
+
+.f-r {
+    float: right !important;
+}
