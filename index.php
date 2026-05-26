@@ -1,28 +1,6 @@
 <?php
 require_once("banco.php");
-$login_falhou = false;
-$errorString = "opacity-0";
-
-if (isset($_POST['login'])) {
-    $nome = $_POST['name'];
-    $senha = base64_encode(trim($_POST['senha']));
-
-    $query = "SELECT * FROM user WHERE USUARIO = '$nome' AND SENHA = '$senha'";
-    $puxa = $mysqli->query($query);
-
-    if ($puxa->num_rows == 1) {
-        setcookie("Logado", "Sim", time() + 120);
-        session_start();
-
-        $_SESSION['nome'] = $nome;
-        $_SESSION['senha'] = $senha;
-        header("location:homepage.php");
-    } else {
-        $login_falhou = true;
-        $errorString = "opacity-100";
-    }
-}
-
+require_once("_sessionChecker.php");
 ?>
 
 <!DOCTYPE html>
@@ -38,48 +16,65 @@ if (isset($_POST['login'])) {
     <link rel="stylesheet" href="css/style.css">
 
 
-    <title>Login Page</title>
+
+    <title>Home Page</title>
 </head>
 
 <body class="container-fluid">
-    <header class="d-flex row">
+    <header class="d-flex row p-4">
         <div class="col-12">
-            <img src="assets/header-logo3c.png" alt="..." class="img-mid">
-        </div>
-    </header>
-    <main class="d-flex row corpo">
-        <div class="col-3"></div>
-        <div class="col-6">
+            <img src="assets/header-logo3c.png" alt="..." class="img-mid m-3">
 
-            <div class="bg-body border border-4 border-info-subtle rounded-5 p-5 position-sticky">
+            <p class="d-inline-flex gap-1 float-r">
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                    </svg>
+                </button>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body p-0">
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">Home</a>
+                            <a class="navbar-brand" href="#">"....."</a>
+                            <a class="navbar-brand" href="#">"....."</a>
 
-                <form action="" method="post">
-                    <h1 class="text-center">Login de Usuario</h1>
-                    <div class="form-floating mb-3 m-5">
-                        <input required type="text" class="form-control rounded-4 shadow" id="name" name="name">
-                        <label for="name">Nome de Usuario</label>
-                    </div>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Sair
+                            </button>
 
-                    <div class="form-floating m-5">
-                        <input required type="password" class="form-control rounded-4 shadow" id="Password"
-                            name="senha">
-                        <label for="Password">Senha</label>
-                    </div>
-
-                    <div class="m-4 text-center">
-                        <button class="btn btn-primary btn-lg rounded-4 shadow" type="submit" value="login"
-                            name="login">Entrar</button>
-                    </div>
-
-                    <div class="alert alert-danger <?php echo $errorString; ?>" role="alert">Nome ou Senha INVALIDOS!!!</div>
-
-                </form>
-
-
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Logout Message</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Certeza que você quer sair</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                            <a class="btn btn-secundary" href="logout.php" >Confirmar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
             </div>
 
         </div>
-        <div class="col-3"></div>
+    </header>
+    <main class="d-flex row corpo">
+        
     </main>
     <footer class="d-flex row">
         <div class="col-12 p-5">

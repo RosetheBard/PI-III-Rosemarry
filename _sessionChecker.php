@@ -1,6 +1,6 @@
 <?php
-
-if (isset($_COOKIE['logado'])){
-    session_start();
+session_start();
+if (!isset($_SESSION['nome'])){
+    header("Location:login.php");
 }
 ?>
