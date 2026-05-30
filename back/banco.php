@@ -7,7 +7,6 @@ define("BANCO", "cippi");
 
 $mysqli = new mysqli(HOST, USUARIO, SENHA, BANCO);
 
-
 if (!$mysqli) {
     setcookie("bancoOff","Sim",time() + 120);
 }else{

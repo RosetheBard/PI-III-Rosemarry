@@ -1,6 +1,11 @@
 <?php
-require_once("banco.php");
-require_once("_sessionChecker.php");
+require_once("back/_sessionChecker.php");
+$is_ADM = $_SESSION['adm'];
+if ($is_ADM == false) {
+    header("location: paginaAluno.php");
+}
+
+$nome = $_SESSION['nome'];
 ?>
 
 <!DOCTYPE html>
@@ -21,65 +26,118 @@ require_once("_sessionChecker.php");
 </head>
 
 <body class="container-fluid">
-    <header class="d-flex row p-4">
+    <header class="d-flex row p-1">
         <div class="col-12">
-            <img src="assets/header-logo3c.png" alt="..." class="img-mid m-3">
+            <nav class="navbar">
+                <img src="assets/header-logo3c.png"
+                    alt="Logo da Prefeitura do Municipio de São Sebastião, um peixe nas cores verde e vermelho com o brasão da cidade ao lado"
+                    class="img-mid m-1 ">
 
-            <p class="float-r gap-1">
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                        <path
-                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                    </svg>
+                <h1>Olá <?php echo $nome; ?></h1>
+
+                <img src="assets/userIcon.jpg" alt="Foto do Usuario" class="rounded-circle img-small">
+
+                <button type="button" class="btn btn-primary m-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Sair
                 </button>
-            </p>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body p-0">
-                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                        <div class="container-fluid">
-                            <a class="navbar-brand" href="#">Home</a>
-                            <a class="navbar-brand" href="#">"....."</a>
-                            <a class="navbar-brand" href="#">"....."</a>
+            </nav>
 
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Sair
-                            </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Logout Message</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Certeza que você quer sair</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                            <a class="btn btn-secundary" href="logout.php" >Confirmar</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Logout Message</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                    </nav>
+                        <div class="modal-body">
+                            <p>Certeza que você quer sair</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                            <a class="btn btn-secundary" href="logout.php">Confirmar</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
         </div>
     </header>
-    <main class="d-flex row corpo">
-        
-    </main>
-    <footer class="d-flex row">
-        <div class="col-12 p-5">
+    <main class="d-flex row justify-content-center corpo">
+        <div class="col-2 lateral">
 
         </div>
+
+        <!-- Grid do Centro -->
+        <div class="col-2 ">
+            <div class="card text-center m-4 " style="width: 13rem;">
+                <div class="card-header">
+                    <h5>Add Aluno</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text fs-4">Cadastrar um novo aluno</p>
+                    <a href="cadastroAluno.php" class="btn btn-primary">Clique Aqui</a>
+                </div>
+            </div>
+
+            <div class="card text-center m-4 " style="width: 13rem;">
+                <div class="card-header">
+                    <h5>...</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="card text-center m-4 " style="width: 13rem;">
+                <div class="card-header">
+                    <h5>Lista de Alunos</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text fs-4">Ver alunos cadastrados</p>
+                    <a href="" class="btn btn-primary">Clique Aqui</a>
+                </div>
+            </div>
+
+            <div class="card text-center m-4 " style="width: 13rem;">
+                <div class="card-header">
+                    <h5>...</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="card text-center m-4 " style="width: 13rem;">
+                <div class="card-header">
+                    <h5>...</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="card text-center m-4 " style="width: 13rem;">
+                <div class="card-header">
+                    <h5>...</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">...</p>
+                </div>
+            </div>
+        </div>
+         <!-- ======================== -->
+
+        <div class="col-2 lateral">
+
+        </div>
+    </main>
+    <footer class="d-flex row p-1">
+        <small>Feito por Rosemarry</small>
     </footer>
 
 

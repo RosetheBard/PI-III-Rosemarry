@@ -10,17 +10,25 @@ header {
 }
 
 footer {
-    padding: 10px;
     background-color: lightblue;
 }
 
+.lateral {
+    background-color: rgb(198, 255, 255);
+}
 
+/* ============================  colours  ================================ */
+.blue {
+    background-color: rgb(36, 36, 230);
+}
 
 /*  ==========================imgs e icones===============================  */
+.img-small{
+    width: 4%;
+}
 
 .img-mid {
-    width: 15%;
-
+    width: 10%;
 }
 
 
