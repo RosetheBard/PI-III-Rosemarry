@@ -25,7 +25,7 @@ require_once("_sessionChecker.php");
         <div class="col-12">
             <img src="assets/header-logo3c.png" alt="..." class="img-mid m-3">
 
-            <p class="d-inline-flex gap-1 float-r">
+            <p class="float-r gap-1">
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
