@@ -39,6 +39,21 @@ require_once("back/registro.php");
                         <label for="name">Nome do Aluno</label>
                     </div>
 
+                    <div class="form-floating mb-3 m-5">
+                        <input required type="text" class="form-control rounded-4 shadow" id="cpf" name="cpf">
+                        <label for="cpf">CPF</label>
+                    </div>
+
+                    <div class="form-floating m-5">
+                        <input type="checkbox" name="matricula" id="matricula">
+                        <label for="matricula">Matricular?</label>
+                    </div>
+
+                    <div class="form-floating mb-3 m-5">
+                        <input required type="text" class="form-control rounded-4 shadow" id="curso" name="curso">
+                        <label for="curso">Curso</label>
+                    </div>
+
                     <div class="form-floating m-5">
                         <input required type="password" class="form-control rounded-4 shadow" id="Password"
                             name="senha">
@@ -47,7 +62,7 @@ require_once("back/registro.php");
 
                     <div class="m-4 text-center">
                         <button class="btn btn-primary btn-lg rounded-4 shadow" type="submit" value="enviar"
-                            name="login">Enviar</button>
+                            name="enviar">Enviar</button>
                     </div>
 
                 </form>
