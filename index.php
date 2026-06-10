@@ -64,7 +64,7 @@ $nome = $_SESSION['nome'];
 
         </div>
     </header>
-    <main class="d-flex row justify-content-center corpo">
+    <main class="d-flex row justify-content-center">
         <div class="col-2 lateral">
 
         </div>
@@ -97,7 +97,7 @@ $nome = $_SESSION['nome'];
                 </div>
                 <div class="card-body">
                     <p class="card-text fs-4">Ver alunos cadastrados</p>
-                    <a href="" class="btn btn-primary">Clique Aqui</a>
+                    <a href="ListaAlunos.php" class="btn btn-primary">Clique Aqui</a>
                 </div>
             </div>
 
@@ -137,7 +137,7 @@ $nome = $_SESSION['nome'];
         </div>
     </main>
     <footer class="d-flex row p-1">
-        <small>Feito por Rosemarry</small>
+        <small>Feito por <a href="#">Rosemarry</a></small>
     </footer>
 
 

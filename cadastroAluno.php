@@ -73,10 +73,8 @@ require_once("back/registro.php");
         </div>
         <div class="col-3"></div>
     </main>
-    <footer class="d-flex row">
-        <div class="col-12 p-5">
-
-        </div>
+    <footer class="d-flex row p-1">
+        <small>Feito por <a href="#">Rosemarry</a></small>
     </footer>
 
 

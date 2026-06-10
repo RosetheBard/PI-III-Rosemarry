@@ -8,10 +8,10 @@ if (isset($_POST['login'])) {
     $nome = $_POST['name'];
     $senha = base64_encode(trim($_POST['senha']));
 
-    $query = "SELECT * FROM user WHERE USUARIO = '$nome' AND SENHA = '$senha'";
+    $query = "SELECT * FROM gestores WHERE NOME = '$nome' AND SENHA = '$senha'";
     $puxa = $mysqli->query($query);
 
-    $query1 = "SELECT * FROM alunos WHERE NOME = '$nome' AND SENHA = '$senha'";
+    $query1 = "SELECT * FROM aluno WHERE NOME = '$nome' AND SENHA = '$senha'";
     $puxa1 = $mysqli->query($query1);
 
     if ($puxa->num_rows == 1) {

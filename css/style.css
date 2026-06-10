@@ -4,9 +4,10 @@ header {
     background-color: lightblue;
 }
 
-.corpo {
+main {
     background-color: lightcyan;
-    height: 100vh !important;
+    min-height: 100vh !important;
+    height: fit-content;
 }
 
 footer {

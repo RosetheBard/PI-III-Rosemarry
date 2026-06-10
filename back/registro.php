@@ -9,7 +9,7 @@ if (isset($_POST['enviar'])) {
     $senha = base64_encode(trim($_POST['senha']));
 
 
-    $insere = "INSERT INTO alunos (NOME, CPF, SITUAÇÃO, CURSO, SENHA) 
+    $insere = "INSERT INTO aluno (NOME, CPF, SITUACAO, CURSO, SENHA) 
 VALUES ('$nome', '$cpf', '$situ', '$curso', '$senha');" ;
 
     if($mysqli->query($insere)){
